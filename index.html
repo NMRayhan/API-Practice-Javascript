@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Practices</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
     
-    <!-- <ol id="li-container">
-    </ol> -->
     <div class="container">
         <h1>User Details</h1>
-        <table class="table table-striped table-hover">
+        <div class="row g-3" id="search-container">
+            <div class="col-auto">
+                <input class="form-control" type="text" name="" placeholder="Name or User Name" id="username"> 
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" id="submit" >Search</button>
+            </div>
+        </div>
+        <table class="table table-striped table-hover" id="table-container">
             <thead>
                 <tr>
                     <th>User ID</th>
@@ -29,6 +36,8 @@
 
             </tbody>
         </table>
+        <!-- <ol id="li-container">
+        </ol> -->
     </div>
     <script src="API.js"></script>
 </body>
