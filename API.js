@@ -1,7 +1,6 @@
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(json => {
-        // displayUserName(json)
         if (json.length > 0) {
             let temp = ""
             json.forEach(elmt => {

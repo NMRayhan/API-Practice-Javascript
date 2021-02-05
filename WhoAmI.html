@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Name from Who am i</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="row g-3" id="search-container">
+                <div class="col-auto">
+                    <input class="form-control" type="text" name="" placeholder="User Number" id="user-number">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3" id="submit-Btn">Search</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Picture</th>
+                </tr>
+            </thead>
+            <tbody id="userData">
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById('submit-Btn').addEventListener('click', function () {
+            const userNumber = document.getElementById('user-number').value;
+            fetch('https://randomuser.me/api/?results=' + userNumber)
+                .then((Response) => Response.json())
+                .then((data) => {
+                    let temp = ""
+                    data.results.forEach(user => {
+                        temp += "<tr>"
+                        temp += "<td>" + user.id.value + "</td>"
+                        temp += "<td>" + user.name.title + " " + user.name.first + " " + user.name.last + "</td>"
+                        temp += "<td>" + user.gender + "</td>"
+                        temp += "<td>" + user.email + "</td>"
+                        temp += "<td>" + user.dob.age + "</td>"
+                        temp += "<td>" + user.phone + "</td>"
+                        temp += "<td>" + `<img src= ${user.picture.medium} alt=''>` + "</td>"
+                    });
+                    document.getElementById('userData').innerHTML = temp
+                })
+        })
+    </script>
+
+</body>
+
+</html>
