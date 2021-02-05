@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun With API</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1 id="activity"></h1>
+    </div>
+
+    <script>
+        fetch('http://www.boredapi.com/api/activity/')
+            .then(response => response.json())
+            .then(json => {
+                document.getElementById('activity').innerText = json.activity;
+                const setLink = document.createElement("a");
+                setLink.href = json.link
+                document.getElementById('container').appendChild(setLink);
+            })
+
+    </script>
+</body>
+
+</html>
